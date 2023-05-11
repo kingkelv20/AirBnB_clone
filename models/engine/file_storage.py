@@ -5,6 +5,12 @@
 import json
 from os.path import exists
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage:
@@ -38,5 +44,5 @@ class FileStorage:
                 temp = json.loads(js)
                 FileStorage.__objects = {}
                 for t in temp:
-                    if temp[t]['__class__'] == 'BaseModel':
-                        FileStorage.__objects[t] = BaseModel(**temp[t])
+                    a = eval(temp[t]['__class__'])(**temp[t])
+                    self.new(a)
