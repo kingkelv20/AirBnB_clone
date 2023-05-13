@@ -102,6 +102,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(b1.to_dict(), b2.to_dict())
 
         b1.save()
+        self.assertNotEqual(b1.to_dict(), b2.to_dict())
+
         b2 = BaseModel(**b1.to_dict())
         self.assertEqual(b1.to_dict(), b2.to_dict())
         self.assertIsInstance(b2.updated_at, datetime.datetime)
