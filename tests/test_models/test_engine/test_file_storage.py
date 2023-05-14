@@ -11,6 +11,26 @@ from os.path import exists
 
 class TestFileStorage(unittest.TestCase):
     """ tests the file storage """
+    
+    @classmethod
+    def setUp(self):
+        try:
+            os.rename("file.json", "tmp")
+        except IOError:
+            pass
+
+    @classmethod
+    def tearDown(self):
+        try:
+            os.remove("file.json")
+        except IOError:
+            pass
+        try:
+            os.rename("tmp", "file.json")
+        except IOError:
+            pass
+        FileStorage._FileStorage__objects = {}
+
     def test_storage(self):
         """ tests the reload, save, new and all methods"""
         # starting with empty dictionary json file
@@ -100,4 +120,3 @@ class TestFileStorage(unittest.TestCase):
               f"{b2.to_dict()['__class__']}.{b2.id}": b2}
         for d in dc:
             self.assertEqual(dc[d].to_dict(), st_all[d].to_dict())
-
