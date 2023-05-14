@@ -3,19 +3,19 @@
 
  By: Shakir Muhammedsaid, Kelvin AGIMOGIM
 
-### Description
+## Description
   - The console: It is an interactive shell that enables testing of the given classes in interactive and non-interactive mode. It is help full for debbuging and development. It has features to create new instance, show the info of an instance, update an attribute of an instance, destroy an instance, all instance of the specified class.
   - Class Structure: it Uses BaseModel class as the base for all other classes with attributes of ```id```, ```created_at``` and ```updated_at```.
     - BaseModel
-    - - User
-    - - State
-    - - City
-    - - Amenity
-    - - Place
-    - - Review
+      - User
+      - State
+      - City
+      - Amenity
+      - Place
+      - Review
   - Storage Engine: as storage it uses json file to save the instances and has built-in serializing and deserializing features.
-  ```<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>```
-
+  ```<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>```.
+  - Testing: testing is performed using unittest. All testing files are found in ```tests/``` folder. ```python3 -m unittest discover tests``` command can be used to run all tests.
 ### Available classes
 
 ### Usage
